@@ -23,9 +23,16 @@
   --light: #f3f9fa;
 
   /* Typography */
-  --h1: 1.75rem;
+  --strong: 3rem;
+  --strong-letter-spacing: -1px;
+
+  --body-l: 1.5rem;
 
   --body: 1rem;
+
+  --body-s: 0.813rem;
+
+  --button: 1.25rem;
 }
 
 body {
@@ -35,18 +42,26 @@ body {
   min-height: 100vh;
 }
 
-h1 {
-  font-size: var(--h1);
+.strong-text {
+  font-size: var(--strong);
+  letter-spacing: var(--strong-letter-spacing);
+}
+
+.body-l-text {
+  font-size: var(--body-l);
 }
 
 .body-text {
   font-size: var(--body);
 }
 
+.body-s-text {
+  font-size: var(--body-s);
+}
+
 @media (max-width: 375px) {
   :root {
-    --h1: 22px;
-
-    --body: 0.938rem;
+    --strong: 2rem;
+    --strong-letter-spacing: -0.66px;
   }
 }
