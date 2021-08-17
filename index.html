@@ -38,11 +38,11 @@
           <div class="input-group">
             <label class="body-text input-label">Select Tip %</label>
             <div class="input-tips-container">
-              <button class="body-l-text input-tip">5%</button>
-              <button class="body-l-text input-tip">10%</button>
-              <button class="body-l-text input-tip">15%</button>
-              <button class="body-l-text input-tip">25%</button>
-              <button class="body-l-text input-tip">50%</button>
+              <button class="body-l-text input-tip" id="tip5">5%</button>
+              <button class="body-l-text input-tip" id="tip10">10%</button>
+              <button class="body-l-text input-tip" id="tip15">15%</button>
+              <button class="body-l-text input-tip" id="tip25">25%</button>
+              <button class="body-l-text input-tip" id="tip50">50%</button>
               <input type="number" class="body-l-text input-field" placeholder="Custom" id="input-field-tip"></input>
             </div>
           </div>
@@ -64,18 +64,20 @@
               <b class="body-text card-price-title">Tip Amount</b>
               <p class="body-s-text card-price-subtitle">/ person</p>
             </div>
-            <strong class="strong-text card-price-value">$0.00</strong>
+            <strong class="strong-text card-price-value" id="tipAmount">$0.00</strong>
           </section>
           <section class="card-price-container">
             <div>
               <b class="body-text card-price-title">Total</b>
               <p class="body-s-text card-price-subtitle">/ person</p>
             </div>
-            <strong class="strong-text card-price-value">$0.00</strong>
+            <strong class="strong-text card-price-value" id="totalPrice">$0.00</strong>
           </section>
-          <button class="btn btn-primary btn-reset">Reset</button>
+          <button class="btn btn-primary btn-reset" onclick="resetBill()">Reset</button>
         </div>
       </section>
     </main>
+
+    <script src="./main.js"></script>
   </body>
 </html>
