@@ -94,18 +94,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: none;
   outline: none;
+  border: 2px solid transparent;
   background-color: var(--dark-cyan);
   border-radius: 5px;
 }
 
-.input-tip:hover,
-.input-tip:focus {
+.input-tip:hover {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   background-color: var(--bright-cyan-hover);
   color: var(--dark-cyan);
+}
+
+.input-tip:focus {
+  border: 2px solid var(--bright-cyan);
 }
 
 .input-tip-active {
