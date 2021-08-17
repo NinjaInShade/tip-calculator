@@ -16,7 +16,6 @@
 
 .card-left {
   margin-right: 48px;
-  flex-grow: 1;
 }
 
 .input-label {
@@ -47,6 +46,14 @@
   color: rgba(0, 71, 75, 0.35);
 }
 
+#input-field-tip {
+  padding: 6px 12px;
+}
+
+#input-field-tip::placeholder {
+  color: var(--light-cyan);
+}
+
 .input-group {
   position: relative;
 }
@@ -74,11 +81,44 @@
   width: 13px;
 }
 
+.input-tips-container {
+  display: grid;
+  grid-template-columns: repeat(3, 118px);
+  grid-template-rows: repeat(2, 48px);
+  column-gap: 14px;
+  row-gap: 16px;
+}
+
+.input-tip {
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  background-color: var(--dark-cyan);
+  border-radius: 5px;
+}
+
+.input-tip:hover {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background-color: var(--bright-cyan-hover);
+  color: var(--dark-cyan);
+}
+
+.input-tip-active {
+  background-color: var(--bright-cyan);
+  color: var(--dark-cyan);
+}
+
 .card-right {
   background-color: var(--dark-cyan);
   border-radius: 15px;
   max-width: 415px;
   padding: 40px;
+  flex-grow: 1;
   width: 100%;
 }
 
