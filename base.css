@@ -73,6 +73,17 @@ main {
   font-size: var(--body-s);
 }
 
+/* Removes number up/down arrows */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type='number'] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
 @media (max-width: 375px) {
   :root {
     --strong: 2rem;
