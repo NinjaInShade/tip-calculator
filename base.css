@@ -16,11 +16,16 @@
   --cyan: #3d6666;
   --light-cyan: #547878;
   --lightest-cyan: #5e7a7d;
+
   --bright-cyan: #26c2ae;
+  --bright-cyan-hover: #9fe8df;
+  --disabled-cyan: #0d686d;
 
   /* Neutral */
   --gray: #9ebbbd;
   --light: #f3f9fa;
+
+  --bg: #c5e4e7;
 
   /* Typography */
   --strong: 3rem;
@@ -39,7 +44,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--bg);
   min-height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .strong-text {
