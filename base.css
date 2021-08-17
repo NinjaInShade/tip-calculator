@@ -12,8 +12,15 @@
   font-size: 16px;
 
   /* Primary */
+  --dark-cyan: #00474b;
+  --cyan: #3d6666;
+  --light-cyan: #547878;
+  --lightest-cyan: #5e7a7d;
+  --bright-cyan: #26c2ae;
 
   /* Neutral */
+  --gray: #9ebbbd;
+  --light: #f3f9fa;
 
   /* Typography */
   --h1: 1.75rem;
