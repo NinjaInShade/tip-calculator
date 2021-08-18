@@ -27,8 +27,12 @@
 
 .input-error {
   font-weight: bold;
-  /* visibility: hidden; */
+  visibility: hidden;
   color: var(--error);
+}
+
+.input-group-error .input-error {
+  visibility: visible;
 }
 
 .input-label {
@@ -57,11 +61,15 @@
   color: rgba(0, 71, 75, 0.35);
 }
 
-#input-field-tip {
+.input-group-error .input-field {
+  border: 2px solid var(--error);
+}
+
+#totalTipPercentage {
   padding: 6px 12px;
 }
 
-#input-field-tip::placeholder {
+#totalTipPercentage::placeholder {
   color: var(--light-cyan);
 }
 

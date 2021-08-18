@@ -6,19 +6,23 @@ let activeTip = tip5;
 
 // DOM Elements
 const totalBillContainer = document.getElementById('totalBillGroup');
-const totalBillInput = document.getElementById('totalBill');
-const totalBillError = document.getElementById('totalBillError');
-
 const tipCustomContainer = document.getElementById('totalTipPercentageGroup');
-const tipCustomInput = document.getElementById('totalTipPercentage');
-const tipCustomError = document.getElementById('totalTipPercentageError');
-
 const numberOfPeopleContainer = document.getElementById('numberOfPeopleGroup');
-const numberOfPeopleInput = document.getElementById('numberOfPeople');
-const numberOfPeopleError = document.getElementById('numberOfPeopleError');
 
 const tipAmount = document.getElementById('tipAmount');
 const totalPrice = document.getElementById('totalPrice');
+
+function validate(num, max) {
+  if (num < 1) {
+    return "Can't be zero";
+  }
+
+  if (num > max) {
+    return `Number can't exceed ${max}`;
+  }
+
+  return true;
+}
 
 function calculateBill() {
   if (totalBill === 0 || numberOfPeople === 0) {
@@ -46,7 +50,14 @@ function calculateBill() {
 
 // Set total bill variable, whilst validating for a max number
 function updateTotalBill(event) {
-  if (event.target.value > 10000000) {
+  const validateField = validate(event.target.value, 10000000);
+
+  totalBillContainer.classList.remove('input-group-error');
+
+  if (validateField !== true) {
+    totalBillContainer.classList.add('input-group-error');
+    totalBillContainer.querySelector('.input-error').innerText = validateField;
+
     return (totalBill = 0);
   }
 
@@ -57,7 +68,14 @@ function updateTotalBill(event) {
 
 // Set number of people variable, whilst validating for a max number
 function updateNumberOfPeople(event) {
-  if (event.target.value > 100) {
+  const validateField = validate(event.target.value, 100);
+
+  numberOfPeopleContainer.classList.remove('input-group-error');
+
+  if (validateField !== true) {
+    numberOfPeopleContainer.classList.add('input-group-error');
+    numberOfPeopleContainer.querySelector('.input-error').innerText = validateField;
+
     return (numberOfPeople = 0);
   }
 
@@ -69,7 +87,14 @@ function updateNumberOfPeople(event) {
 // Adds active state to tip button pressed
 function selectTip(event, num) {
   if (event.target.value) {
-    if (event.target.value > 10000) {
+    const validateField = validate(event.target.value, 10000);
+
+    tipCustomContainer.classList.remove('input-group-error');
+
+    if (validateField !== true) {
+      tipCustomContainer.classList.add('input-group-error');
+      tipCustomContainer.querySelector('.input-error').innerText = validateField;
+
       return (tipPercentage = 0);
     }
 
@@ -102,9 +127,9 @@ function selectTip(event, num) {
 
 // Reset all inputs and outputs
 function resetBill() {
-  totalBillInput.value = '';
-  numberOfPeopleInput.value = '';
-  tipCustomInput.value = '';
+  totalBillContainer.querySelector('input').value = '';
+  tipCustomContainer.querySelector('input').value = '';
+  numberOfPeopleContainer.querySelector('input').value = '';
 
   totalBill = 0;
   tipPercentage = 0;
