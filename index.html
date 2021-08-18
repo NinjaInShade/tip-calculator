@@ -25,7 +25,10 @@
       <section class="card">
         <div class="card-left">
           <div class="input-group" id="totalBillGroup">
-            <label class="body-text input-label" for="totalBill">Bill</label>
+            <div class="input-label-container">
+              <label class="body-text input-label" for="totalBill">Bill</label>
+              <small class="body-text input-error" id="totalBillError">Input field is valid</small>
+            </div>
             <input
               type="number"
               class="body-l-text input-field"
@@ -36,20 +39,26 @@
             />
           </div>
 
-          <div class="input-group">
-            <label class="body-text input-label">Select Tip %</label>
+          <div class="input-group" id="totalTipPercentageGroup">
+            <div class="input-label-container">
+              <label class="body-text input-label">Select Tip %</label>
+              <small class="body-text input-error" id="totalTipPercentageError">Input field is valid</small>
+            </div>
             <div class="input-tips-container">
               <button class="body-l-text input-tip" id="tip5" onclick="selectTip(event, 5)">5%</button>
               <button class="body-l-text input-tip" id="tip10" onclick="selectTip(event, 10)">10%</button>
               <button class="body-l-text input-tip" id="tip15" onclick="selectTip(event, 15)">15%</button>
               <button class="body-l-text input-tip" id="tip25" onclick="selectTip(event, 25)">25%</button>
               <button class="body-l-text input-tip" id="tip50" onclick="selectTip(event, 50)">50%</button>
-              <input type="number" class="body-l-text input-field" placeholder="Custom" id="input-field-tip" oninput="selectTip(event)"></input>
+              <input type="number" class="body-l-text input-field" placeholder="Custom" id="totalTipPercentage" oninput="selectTip(event)"></input>
             </div>
           </div>
 
           <div class="input-group" id="numberOfPeopleGroup">
-            <label class="body-text input-label" for="numberOfPeople">Number of People</label>
+            <div class="input-label-container">
+              <label class="body-text input-label" for="numberOfPeople">Number of People</label>
+              <small class="body-text input-error" id="numberOfPeopleError">Input field is valid</small>
+            </div>
             <input
               type="number"
               class="body-l-text input-field"

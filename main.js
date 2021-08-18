@@ -2,20 +2,20 @@
 let totalBill = 0;
 let tipPercentage = 0;
 let numberOfPeople = 0;
-
-// DOM Elements
-const totalBillInput = document.getElementById('totalBill');
-
-const tip5 = document.getElementById('tip5');
-const tip10 = document.getElementById('tip10');
-const tip15 = document.getElementById('tip15');
-const tip25 = document.getElementById('tip25');
-const tip50 = document.getElementById('tip50');
-const tipCustom = document.getElementById('input-field-tip');
-
 let activeTip = tip5;
 
+// DOM Elements
+const totalBillContainer = document.getElementById('totalBillGroup');
+const totalBillInput = document.getElementById('totalBill');
+const totalBillError = document.getElementById('totalBillError');
+
+const tipCustomContainer = document.getElementById('totalTipPercentageGroup');
+const tipCustomInput = document.getElementById('totalTipPercentage');
+const tipCustomError = document.getElementById('totalTipPercentageError');
+
+const numberOfPeopleContainer = document.getElementById('numberOfPeopleGroup');
 const numberOfPeopleInput = document.getElementById('numberOfPeople');
+const numberOfPeopleError = document.getElementById('numberOfPeopleError');
 
 const tipAmount = document.getElementById('tipAmount');
 const totalPrice = document.getElementById('totalPrice');
@@ -104,7 +104,7 @@ function selectTip(event, num) {
 function resetBill() {
   totalBillInput.value = '';
   numberOfPeopleInput.value = '';
-  tipCustom.value = '';
+  tipCustomInput.value = '';
 
   totalBill = 0;
   tipPercentage = 0;

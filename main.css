@@ -18,11 +18,23 @@
   margin-right: 48px;
 }
 
+.input-label-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.input-error {
+  font-weight: bold;
+  /* visibility: hidden; */
+  color: var(--error);
+}
+
 .input-label {
   display: block;
   font-weight: bold;
   color: var(--lightest-cyan);
-  margin-bottom: 6px;
 }
 
 .input-field {
