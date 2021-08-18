@@ -27,9 +27,9 @@ function calculateBill() {
 
   //   We can still calculate and display atleast total cost per person without tipping if tip % isn't defined
   if (tipPercentage === 0) {
-    const totalCalculatedPrice = totalBill / numberOfPeople;
+    const totalCalculatedPrice = (totalBill / numberOfPeople).toFixed(2);
 
-    return (totalPrice.innerText = `$${totalCalculatedPrice}.00`);
+    return (totalPrice.innerText = `$${totalCalculatedPrice}`);
   }
 
   //   Tip % is defined, we can add in the tip logic
