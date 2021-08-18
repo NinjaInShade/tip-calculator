@@ -12,13 +12,13 @@ const numberOfPeopleContainer = document.getElementById('numberOfPeopleGroup');
 const tipAmount = document.getElementById('tipAmount');
 const totalPrice = document.getElementById('totalPrice');
 
-function validate(num, max) {
+function validate(num, max, abbreviation) {
   if (num < 1) {
     return "Can't be zero";
   }
 
   if (num > max) {
-    return `Number can't exceed ${max}`;
+    return `Number can't exceed ${abbreviation}`;
   }
 
   return true;
@@ -50,7 +50,7 @@ function calculateBill() {
 
 // Set total bill variable, whilst validating for a max number
 function updateTotalBill(event) {
-  const validateField = validate(event.target.value, 10000000);
+  const validateField = validate(event.target.value, 10000000, '10M');
 
   totalBillContainer.classList.remove('input-group-error');
 
@@ -68,7 +68,7 @@ function updateTotalBill(event) {
 
 // Set number of people variable, whilst validating for a max number
 function updateNumberOfPeople(event) {
-  const validateField = validate(event.target.value, 100);
+  const validateField = validate(event.target.value, 100, '100');
 
   numberOfPeopleContainer.classList.remove('input-group-error');
 
@@ -87,7 +87,7 @@ function updateNumberOfPeople(event) {
 // Adds active state to tip button pressed
 function selectTip(event, num) {
   if (event.target.value) {
-    const validateField = validate(event.target.value, 10000);
+    const validateField = validate(event.target.value, 10000, '10K');
 
     tipCustomContainer.classList.remove('input-group-error');
 
