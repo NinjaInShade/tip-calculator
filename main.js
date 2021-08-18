@@ -20,6 +20,43 @@ const numberOfPeopleInput = document.getElementById('numberOfPeople');
 const tipAmount = document.getElementById('tipAmount');
 const totalPrice = document.getElementById('totalPrice');
 
+function calculateBill() {
+  if (totalBill === 0 || numberOfPeople === 0) {
+    return (totalPrice.innerText = `$0.00`);
+  }
+
+  //   We can still calculate and display atleast total cost per person without tipping if tip % isn't defined
+  if (tipPercentage === 0) {
+    const totalCalculatedPrice = totalBill / numberOfPeople;
+
+    return (totalPrice.innerText = `$${totalCalculatedPrice}.00`);
+  }
+
+  //   Tip % is defined, we can add in the tip logic
+}
+
+// Set total bill variable, whilst validating for a max number
+function updateTotalBill(event) {
+  if (event.target.value > 10000000) {
+    return (totalBill = 0);
+  }
+
+  totalBill = event.target.value || 0;
+
+  calculateBill();
+}
+
+// Set number of people variable, whilst validating for a max number
+function updateNumberOfPeople(event) {
+  if (event.target.value > 100) {
+    return (numberOfPeople = 0);
+  }
+
+  numberOfPeople = event.target.value || 0;
+
+  calculateBill();
+}
+
 // Adds active state to tip button pressed
 function selectTip(num) {
   const pressedTip = document.getElementById(`tip${num}`);
@@ -38,6 +75,10 @@ function resetBill() {
   totalBillInput.value = '';
   numberOfPeopleInput.value = '';
   tipCustom.value = '';
+
+  totalBill = 0;
+  tipPercentage = 0;
+  numberOfPeople = 0;
 
   activeTip.classList.remove('input-tip-active');
 
