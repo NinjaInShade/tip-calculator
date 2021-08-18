@@ -29,10 +29,19 @@ function calculateBill() {
   if (tipPercentage === 0) {
     const totalCalculatedPrice = (totalBill / numberOfPeople).toFixed(2);
 
+    tipAmount.innerText = `$00.00`;
     return (totalPrice.innerText = `$${totalCalculatedPrice}`);
   }
 
   //   Tip % is defined, we can add in the tip logic
+  const tipBonus = (+totalBill / 100) * +tipPercentage;
+  const totalOverallPrice = +totalBill + +tipBonus;
+
+  const totalCalculatedPrice = (totalOverallPrice / numberOfPeople).toFixed(2);
+  const totalTipAmount = (+tipBonus / numberOfPeople).toFixed(2);
+
+  tipAmount.innerText = `$${totalTipAmount}`;
+  return (totalPrice.innerText = `$${totalCalculatedPrice}`);
 }
 
 // Set total bill variable, whilst validating for a max number
@@ -58,7 +67,25 @@ function updateNumberOfPeople(event) {
 }
 
 // Adds active state to tip button pressed
-function selectTip(num) {
+function selectTip(event, num) {
+  if (event.target.value) {
+    if (event.target.value > 10000) {
+      return (tipPercentage = 0);
+    }
+
+    activeTip.classList.remove('input-tip-active');
+
+    tipPercentage = event.target.value;
+
+    return calculateBill();
+  }
+
+  if (!event.target.value && !num) {
+    tipPercentage = 0;
+
+    return calculateBill();
+  }
+
   const pressedTip = document.getElementById(`tip${num}`);
 
   //   Remove previous activeTip's active class
@@ -66,8 +93,11 @@ function selectTip(num) {
 
   //   Set new active tip
   activeTip = pressedTip;
+  tipPercentage = +num;
 
   pressedTip.classList.add('input-tip-active');
+
+  calculateBill();
 }
 
 // Reset all inputs and outputs

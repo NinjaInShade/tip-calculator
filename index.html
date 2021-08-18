@@ -39,12 +39,12 @@
           <div class="input-group">
             <label class="body-text input-label">Select Tip %</label>
             <div class="input-tips-container">
-              <button class="body-l-text input-tip" id="tip5" onclick="selectTip(5)">5%</button>
-              <button class="body-l-text input-tip" id="tip10" onclick="selectTip(10)">10%</button>
-              <button class="body-l-text input-tip" id="tip15" onclick="selectTip(15)">15%</button>
-              <button class="body-l-text input-tip" id="tip25" onclick="selectTip(25)">25%</button>
-              <button class="body-l-text input-tip" id="tip50" onclick="selectTip(50)">50%</button>
-              <input type="number" class="body-l-text input-field" placeholder="Custom" id="input-field-tip"></input>
+              <button class="body-l-text input-tip" id="tip5" onclick="selectTip(event, 5)">5%</button>
+              <button class="body-l-text input-tip" id="tip10" onclick="selectTip(event, 10)">10%</button>
+              <button class="body-l-text input-tip" id="tip15" onclick="selectTip(event, 15)">15%</button>
+              <button class="body-l-text input-tip" id="tip25" onclick="selectTip(event, 25)">25%</button>
+              <button class="body-l-text input-tip" id="tip50" onclick="selectTip(event, 50)">50%</button>
+              <input type="number" class="body-l-text input-field" placeholder="Custom" id="input-field-tip" oninput="selectTip(event)"></input>
             </div>
           </div>
 
