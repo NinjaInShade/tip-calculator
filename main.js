@@ -18,7 +18,7 @@ function validate(num, max, abbreviation) {
   }
 
   if (num > max) {
-    return `Number can't exceed ${abbreviation}`;
+    return `Can't exceed ${abbreviation}`;
   }
 
   return true;

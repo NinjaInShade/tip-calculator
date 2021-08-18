@@ -26,13 +26,13 @@
 }
 
 .input-error {
+  display: none;
   font-weight: bold;
-  visibility: hidden;
   color: var(--error);
 }
 
 .input-group-error .input-error {
-  visibility: visible;
+  display: block;
 }
 
 .input-label {
@@ -102,7 +102,7 @@
 
 .input-tips-container {
   display: grid;
-  grid-template-columns: repeat(3, 118px);
+  grid-template-columns: repeat(3, minmax(100px, 118px));
   grid-template-rows: repeat(2, 48px);
   column-gap: 14px;
   row-gap: 16px;
@@ -173,4 +173,54 @@
 .btn-reset {
   margin-top: 120px;
   width: 100%;
+}
+
+@media (max-width: 800px) {
+  .card {
+    flex-direction: column;
+    border-radius: 25px 25px 0 0;
+    padding: 32px 24px;
+  }
+
+  .card-left,
+  .card-right {
+    max-width: none;
+    width: 100%;
+  }
+
+  .card-left {
+    margin: 0 0 32px 0;
+    padding: 0 8px;
+  }
+
+  .card-right {
+    padding: 40px 24px 24px 24px;
+  }
+
+  .card-price-container:first-child {
+    margin-bottom: 20px;
+  }
+
+  .input-group:not(:last-child) {
+    margin-bottom: 32px;
+  }
+
+  .btn-reset {
+    margin-top: 32px;
+  }
+
+  .input-tips-container {
+    grid-template-columns: repeat(3, minmax(auto, 1fr));
+    column-gap: 17px;
+  }
+
+  #totalTipPercentage::placeholder {
+    text-align: center;
+  }
+}
+
+@media (max-width: 450px) {
+  .input-tips-container {
+    grid-template-columns: repeat(2, minmax(auto, 1fr));
+  }
 }
